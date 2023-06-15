@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Тарифные планы юр.лиц.</button>
+    </div>
+    <table>
+        <tr>
+            <th>Название</th>
+            <th>Стоимость</th>
+            <th>Скорость</th>
+            <th>Примеч.</th>
+        </tr>
+        <tr>
+            <td>Контакт</td>
+            <td>100 руб.</td>
+            <td>1 Мбит</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Контакт-1</td>
+            <td>150 руб.</td>
+            <td>2 Мбит</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Контакт-2</td>
+            <td>200 руб.</td>
+            <td>4 Мбит</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Контакт-4</td>
+            <td>250 руб.</td>
+            <td>10 Мбит</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Контакт-10</td>
+            <td>400 руб.</td>
+            <td>20 Мбит</td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+
+</html>
