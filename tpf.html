@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Мой сайт</title>
+    <title>БОТ</title>
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
     <style>
@@ -13,10 +13,29 @@
             font-family: 'Montserrat', sans-serif;
         }
 
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             border: 1px solid #dddddd;
+            table-layout: fixed;
         }
 
         th,
@@ -24,10 +43,13 @@
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
         }
 
         th {
             background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
         }
 
         th:first-child,
@@ -43,12 +65,15 @@
 </head>
 
 <body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Тарифные планы физ.лиц.</button>
+    </div>
     <table>
         <tr>
-            <th>Заголовок 1</th>
-            <th>Заголовок 2</th>
-            <th>Заголовок 3</th>
-            <th>Заголовок 4</th>
+            <th>Название ТП</th>
+            <th>Стоимость</th>
+            <th>Скорость</th>
+            <th>Примечание</th>
         </tr>
         <tr>
             <td>Ячейка 1-1</td>
