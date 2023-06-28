@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">XIAOMI</button>
+    </div>
+    <h3>Настройка PPPoE на XIAOMI</h3>
+
+    <p>Открываем любой браузер на устройстве, которое подключено по <strong>Wi-Fi</strong> или с помощью
+        <strong>кабеля</strong> к роутеру.
+    </p>
+
+    <p>В адресной строке пишем <strong>192.168.31.1</strong> и нажимаем <strong>Enter</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi1.png"></div>
+
+    <p>Откроется главное меню роутера. Выбираем страну <strong>Russia</strong> (1), ставим галочки напротив:
+        <strong>Select
+            your country or region of use</strong> и <strong>Read and agreed to Mi Wi Fi Router User Agreement</strong>
+        (2). Нажимаем на кнопку <strong>Try it Now</strong>.</p>
+    <div class="image-container"><img src="https://choigan.github.io/mi2.jpg"></div>
+
+    <p>Роутер может не определить тип нашего интернет соединения. Для того, чтобы использовать альтернативные типы
+        подключения, требуется нажать внизу страницы кнопку <strong>Select Internet connection mode manually</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi3.jpg"></div>
+
+    <p>Откроется окно для выбора типа подключения. Выбираем <strong>Broadband acount online PPPoE</strong> и нажимаем
+        <strong>Next</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi4.jpg"></div>
+
+    <p>Вводим данные по договору PPPoE: <strong>Broadband account</strong> – логин, <strong>Broadband Password</strong>
+        – пароль. После чего нажимаем внизу кнопку <strong>Next</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi5.png"></div>
+
+    <p>Далее открывается настройка Wi-Fi, где можно задать <strong>SSID (имя сети)</strong> и <strong>Пароль</strong>.
+        Если стоит
+        галочка <strong>Make Wi-Fi password the router administrator password</strong>, то пароль от Wi-Fi установится в
+        качестве пароля для доступа в веб-интерфейс роутера.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi6.jpg"></div>
+
+    <p>Настройка завершена. Появится окно, в котором будут указаны: <strong>Имя Wi-Fi сети</strong> и <strong>Пароль для
+            подключения</strong> (1), <strong>IP-адрес для входа в веб-интерфейс роутера</strong> и
+        <strong>Пароль</strong> (2).
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/mi6.jpg"></div>
+</body>
+
+</html>
