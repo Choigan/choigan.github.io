@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">TP-LINK TD-W8961N</button>
+    </div>
+    <h3>Настройка PPPoE на TD-W8961N</h3>
+
+    <p>Открываем любой браузер на устройстве, которое подключено по <strong>Wi-Fi</strong> или с помощью
+        <strong>кабеля</strong> к роутеру.
+    </p>
+
+    <p>В адресной строке пишем <strong>192.168.0.1</strong> или <strong>tplinkmodem.net</strong> и нажимаем
+        <strong>Enter</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl1.png"></div>
+
+    <p>На экране должна открыться страница авторизации. По умолчанию имя пользователя и пароль — <strong>admin</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl2.jpg"></div>
+
+    <p>После ввода данных попадаем в web-интерфейс роутера в котором откроется пункт <strong>Быстрый старт</strong>.
+        Нажимаем <strong>Далее</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl3.png"></div>
+
+    <p>Далее настраиваем <strong>Часовой пояс</strong>. Нажимаем <strong>Далее</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl4.png"></div>
+
+    <p>В разделе <strong>Тип подключения</strong> выбираем пункт <strong>PPPoA / PPPoE</strong> и нажимаем на кнопку
+        <strong>Далее</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl5.png"></div>
+
+    <p>В следующем разделе пункты <strong>VPI</strong> и <strong>VCI</strong> меняем на 0 и 33 соответственно. В полях
+        <strong>Имя пользователя</strong> и <strong>Пароль</strong> вводим логин и пароль из договора. Нажимаем кнопку
+        <strong>Далее</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl6.png"></div>
+
+    <p>Затем настраиваем параметры <strong>Беспроводной сети</strong>. Если хотите оставить параметры по умолчания то
+        нажимаем <strong>Далее</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl7.png"></div>
+
+    <p>Нажимаем <strong>Далее</strong> чтобы завершить <strong>Быстрый старт</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/tpl8.png"></div>
+</body>
+
+</html>
