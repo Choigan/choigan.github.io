@@ -24,8 +24,22 @@ def handle_start(message):
     button7 = types.KeyboardButton("Видео")
     button8 = types.KeyboardButton("Домофон")
     button9 = types.KeyboardButton("ЛС")
+    button10 = types.KeyboardButton("Номера")
+    button11 = types.KeyboardButton("VLAN")
+    button12 = types.KeyboardButton("FAQ")
     keyboard.add(
-        button1, button2, button3, button4, button5, button6, button7, button8, button9
+        button1,
+        button2,
+        button3,
+        button4,
+        button5,
+        button6,
+        button7,
+        button8,
+        button9,
+        button10,
+        button11,
+        button12,
     )
 
     # Отправляем сообщение с клавиатурой
@@ -60,7 +74,7 @@ def handle_section_prom(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_prom_cam = types.KeyboardButton(
         text="Текущие акции",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://tuva.ru/promo/"),
     )
     keyboard.add(btn_prom_cam)
     keyboard.add("Назад")
@@ -90,7 +104,7 @@ def handle_section_dev(message):
 
     btn_dev_rout = types.KeyboardButton(
         text="Роутеры",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/rout"),
     )
     keyboard.add(btn_dev_rout)
 
@@ -193,11 +207,29 @@ def handle_section_dom(message):
 @bot.message_handler(func=lambda message: message.text == "ЛС")
 def handle_section_lc(message):
     # Создаем клавиатуру с подразделами ЛС
+    with open("lc.html", "r", encoding="utf-8") as file:
+        file_content = file.read()
+        bot.send_message(message.chat.id, "Лицевые счета:")
+        bot.send_message(message.chat.id, file_content, parse_mode="HTML")
+
+
+# Обработчик выбора Номера
+@bot.message_handler(func=lambda message: message.text == "Номера")
+def handle_section_num(message):
+    # Создаем клавиатуру с подразделами ЛС
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
-    button1 = types.KeyboardButton("РТК")
-    button2 = types.KeyboardButton("МинОбр")
-    button3 = types.KeyboardButton("Назад")
-    keyboard.add(button1, button2, button3)
+    button1 = types.KeyboardButton("ЦОА")
+    button2 = types.KeyboardButton("КУЭС")
+    button3 = types.KeyboardButton("ЦПУ")
+    button4 = types.KeyboardButton("ЦЭТ")
+    button5 = types.KeyboardButton("ОИТ")
+    button6 = types.KeyboardButton("ПТО")
+    button7 = types.KeyboardButton("СУСС")
+    button8 = types.KeyboardButton("2 этаж")
+    button9 = types.KeyboardButton("Назад")
+    keyboard.add(
+        button1, button2, button3, button4, button5, button6, button7, button8, button9
+    )
 
     # Отправляем сообщение с клавиатурой
     bot.send_message(message.chat.id, "Выберите подраздел:", reply_markup=keyboard)
@@ -215,11 +247,11 @@ def handle_subsection_com_etth(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_com_etth_qtech = types.KeyboardButton(
         text="QTech ETTH",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/qtechetth"),
     )
     keyboard.add(btn_com_etth_qtech)
     btn_com_etth_zyxel = types.KeyboardButton(
-        text="Zyxel ETTH", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Zyxel ETTH", web_app=WebAppInfo(url="https://choigan.github.io/zyxeletth")
     )
     keyboard.add(btn_com_etth_zyxel)
     keyboard.add("Назад")
@@ -233,11 +265,11 @@ def handle_subsection_com_gpon(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_com_gpon_city = types.KeyboardButton(
         text="Город",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/gponcity"),
     )
     keyboard.add(btn_com_gpon_city)
     btn_com_gpon_district = types.KeyboardButton(
-        text="Районы", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Районы", web_app=WebAppInfo(url="https://choigan.github.io/gpondist")
     )
     keyboard.add(btn_com_gpon_district)
     keyboard.add("Назад")
@@ -251,11 +283,11 @@ def handle_subsection_com_adsl(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_com_adsl_qtech = types.KeyboardButton(
         text="QTech ADSL",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/qtechdsl"),
     )
     keyboard.add(btn_com_adsl_qtech)
     btn_com_adsl_zyxel = types.KeyboardButton(
-        text="Zyxel ADSL", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Zyxel ADSL", web_app=WebAppInfo(url="https://choigan.github.io/zyxeldsl")
     )
     keyboard.add(btn_com_adsl_zyxel)
     keyboard.add("Назад")
@@ -273,27 +305,27 @@ def handle_subsection_set_pppoe(message):
 
     btn_set_pppoe_qtech = types.KeyboardButton(
         text="QTech",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/qtechppp"),
     )
     keyboard.add(btn_set_pppoe_qtech)
 
     btn_set_pppoe_asus = types.KeyboardButton(
-        text="ASUS", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="ASUS", web_app=WebAppInfo(url="https://choigan.github.io/asusppp")
     )
     keyboard.add(btn_set_pppoe_asus)
 
     btn_set_pppoe_dlink = types.KeyboardButton(
-        text="D-LINK", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="D-LINK", web_app=WebAppInfo(url="https://choigan.github.io/dlinkppp")
     )
     keyboard.add(btn_set_pppoe_dlink)
 
     btn_set_pppoe_xiaomi = types.KeyboardButton(
-        text="Xiaomi", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Xiaomi", web_app=WebAppInfo(url="https://choigan.github.io/xiaomippp")
     )
     keyboard.add(btn_set_pppoe_xiaomi)
 
     btn_set_pppoe_mercysus = types.KeyboardButton(
-        text="Mercusys", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Mercusys", web_app=WebAppInfo(url="https://choigan.github.io/mercppp")
     )
     keyboard.add(btn_set_pppoe_mercysus)
 
@@ -347,15 +379,15 @@ def handle_subsection_set_tv(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_tv_android = types.KeyboardButton(
         text="Android",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/android"),
     )
     keyboard.add(btn_set_tv_android)
     btn_set_tv_samsung = types.KeyboardButton(
-        text="Samsung", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Samsung", web_app=WebAppInfo(url="https://choigan.github.io/samsung")
     )
     keyboard.add(btn_set_tv_samsung)
     btn_set_tv_lg = types.KeyboardButton(
-        text="LG", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="LG", web_app=WebAppInfo(url="https://choigan.github.io/lg")
     )
     keyboard.add(btn_set_tv_lg)
     keyboard.add("Назад")
@@ -381,29 +413,183 @@ def handle_subsection_set_pp(message):
 @bot.message_handler(func=lambda message: message.text == "Каналы с TimeShift")
 def handle_subsection_iptv_timeshift(message):
     # Обработка действий IPTV -> Каналы с TimeShift
-    with open("1.html", "r", encoding="utf-8") as file:
+    with open("timeshift.html", "r", encoding="utf-8") as file:
         file_content = file.read()
         bot.send_message(message.chat.id, "Список каналов с TimeShift:")
         bot.send_message(message.chat.id, file_content, parse_mode="HTML")
 
 
-# Обработчик выбора ЛС -> РТК
-@bot.message_handler(func=lambda message: message.text == "РТК")
-def handle_subsection_lc_rtk(message):
-    # Обработка действий ЛС -> РТК
+# Обработчик выбора Номера -> ЦОА
+@bot.message_handler(func=lambda message: message.text == "ЦОА")
+def handle_subsection_num_coa(message):
+    # Обработка действий Номера -> ЦОА
+    with open("num_coa.txt", "r", encoding="utf-8") as file:
+        file_content = file.read().splitlines()
+
+    num_message = "Телефоны отдела ЦОА:\n\n"
+    for i, content in enumerate(file_content):
+        data = content.strip().split(" ")
+        if len(data) >= 3:
+            number = data[0].strip()
+            name = data[1].strip()
+            surname = data[2].strip()
+            full_name = f"{name} {surname}"
+            num_message += f"{number} - {full_name}\n"
+
+        elif len(data) >= 2:
+            number = data[0].strip()
+            name = data[1].strip()
+            num_message += f"{number} - {name}\n"
+
+            if i == 6:
+                num_message += "\n Сотовые номера:\n\n"
+    bot.send_message(message.chat.id, text=num_message, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> КУЭС
+@bot.message_handler(func=lambda message: message.text == "КУЭС")
+def handle_subsection_num_kues(message):
+    # Обработка действий Номера -> КУЭС
     with open("1.html", "r", encoding="utf-8") as file:
         file_content = file.read()
-        bot.send_message(message.chat.id, "Лицевые счета РТК:")
+        bot.send_message(message.chat.id, "Телефоны КУЭСов:")
         bot.send_message(message.chat.id, file_content, parse_mode="HTML")
 
 
-# Обработчик выбора ЛС -> МинОбр
-@bot.message_handler(func=lambda message: message.text == "МинОбр")
-def handle_subsection_lc_minobr(message):
-    # Обработка действий ЛС -> МинОбр
+# Обработчик выбора Номера -> ЦПУ
+@bot.message_handler(func=lambda message: message.text == "ЦПУ")
+def handle_subsection_num_cpu(message):
+    # Обработка действий Номера -> ЦПУ
+    with open("num_cpu.txt", "r", encoding="utf-8") as file:
+        file_content = file.read().splitlines()
+
+    num_message = "Телефоны отдела ЦПУ:\n\n"
+    for i, content in enumerate(file_content):
+        data = content.strip().split(" ")
+        if len(data) >= 3:
+            number = data[0].strip()
+            name = data[1].strip()
+            surname = data[2].strip()
+            full_name = f"{name} {surname}"
+            num_message += f"{number} - {full_name}\n"
+
+            if i == 2:
+                num_message += "\n Менеджеры по юр. лицам:\n\n"
+            elif i == 6:
+                num_message += "\n Менеджеры по физ. лицам:\n\n"
+
+        elif len(data) >= 2:
+            number = data[0].strip()
+            name = data[1].strip()
+            num_message += f"{number} - {name}\n"
+
+    bot.send_message(message.chat.id, text=num_message, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> ЦЭТ
+@bot.message_handler(func=lambda message: message.text == "ЦЭТ")
+def handle_subsection_num_aps(message):
+    # Обработка действий Номера -> ЦЭТ
+    with open("num_set.txt", "r", encoding="utf-8") as file:
+        file_content = file.read().splitlines()
+
+    num_message = "Телефоны отдела ЦЭТ:\n\n"
+    for i, content in enumerate(file_content):
+        data = content.strip().split(" ")
+        if len(data) >= 3:
+            number = data[0].strip()
+            name = data[1].strip()
+            surname = data[2].strip()
+            full_name = f"{name} {surname}"
+            num_message += f"{number} - {full_name}\n"
+
+            if i == 1:
+                num_message += "\n Номера СЭТТС:\n\n"
+            elif i == 5:
+                num_message += "\n Номера АПС:\n\n"
+            elif i == 8:
+                num_message += "\n Номера ОЛКС:\n\n"
+
+        elif len(data) >= 2:
+            number = data[0].strip()
+            name = data[1].strip()
+            num_message += f"{number} - {name}\n"
+
+    bot.send_message(message.chat.id, text=num_message, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> ОИТ
+@bot.message_handler(func=lambda message: message.text == "ОИТ")
+def handle_subsection_num_oit(message):
+    # Обработка действий Номера -> ОИТ
+    with open("num_oit.txt", "r", encoding="utf-8") as file:
+        file_content = file.read().splitlines()
+
+    num_message = "Телефоны отдела ОИТ:\n\n"
+    for i, content in enumerate(file_content):
+        data = content.strip().split(" ")
+        if len(data) >= 3:
+            number = data[0].strip()
+            name = data[1].strip()
+            surname = data[2].strip()
+            full_name = f"{name} {surname}"
+            num_message += f"{number} - {full_name}\n"
+
+            if i == 1:
+                num_message += "\n Программисты:\n\n"
+            elif i == 5:
+                num_message += "\n Системные инженера:\n\n"
+
+        elif len(data) >= 2:
+            number = data[0].strip()
+            name = data[1].strip()
+            num_message += f"{number} - {name}\n"
+
+    bot.send_message(message.chat.id, text=num_message, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> ПТО
+@bot.message_handler(func=lambda message: message.text == "ПТО")
+def handle_subsection_num_pto(message):
+    # Обработка действий Номера -> ПТО
+    with open("num_pto.txt", "r", encoding="utf-8") as file:
+        file_content = file.read().splitlines()
+
+    num_message = "Телефоны отдела ПТО:\n\n"
+    for i, content in enumerate(file_content):
+        data = content.strip().split(" ")
+        if len(data) >= 3:
+            number = data[0].strip()
+            name = data[1].strip()
+            surname = data[2].strip()
+            full_name = f"{name} {surname}"
+            num_message += f"{number} - {full_name}\n"
+
+        elif len(data) >= 2:
+            number = data[0].strip()
+            name = data[1].strip()
+            num_message += f"{number} - {name}\n"
+
+    bot.send_message(message.chat.id, text=num_message, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> СУСС
+@bot.message_handler(func=lambda message: message.text == "СУСС")
+def handle_subsection_num_suss(message):
+    # Обработка действий Номера -> СУСС
     with open("1.html", "r", encoding="utf-8") as file:
         file_content = file.read()
-        bot.send_message(message.chat.id, "Лицевые счета МинОбр:")
+        bot.send_message(message.chat.id, "Телефоны отдела СУСС:")
+        bot.send_message(message.chat.id, file_content, parse_mode="HTML")
+
+
+# Обработчик выбора Номера -> 2 этаж
+@bot.message_handler(func=lambda message: message.text == "2 этаж")
+def handle_subsection_num_2floor(message):
+    # Обработка действий Номера -> 2 этаж
+    with open("1.html", "r", encoding="utf-8") as file:
+        file_content = file.read()
+        bot.send_message(message.chat.id, "Телефоны 2 этажа:")
         bot.send_message(message.chat.id, file_content, parse_mode="HTML")
 
 
@@ -419,16 +605,12 @@ def handle_subsection_set_pppoe_pc(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_pppoe_pc_win7 = types.KeyboardButton(
         text="Windows 7",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/win7ppp"),
     )
     keyboard.add(btn_set_pppoe_pc_win7)
-    btn_set_pppoe_pc_win8 = types.KeyboardButton(
-        text="Windows 8", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
-    )
-    keyboard.add(btn_set_pppoe_pc_win8)
 
     btn_set_pppoe_pc_win10 = types.KeyboardButton(
-        text="Windows 10", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Windows 10", web_app=WebAppInfo(url="https://choigan.github.io/win10ppp")
     )
     keyboard.add(btn_set_pppoe_pc_win10)
 
@@ -444,13 +626,13 @@ def handle_subsection_set_pppoe_keenetic(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_pppoe_keenetic_start = types.KeyboardButton(
         text="Keenetic Start",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/startppp"),
     )
     keyboard.add(btn_set_pppoe_keenetic_start)
 
     btn_set_pppoe_keenetic_lite = types.KeyboardButton(
         text="Keenetic Zyxel Lite",
-        web_app=WebAppInfo(url="https://choigan.github.io/tpy"),
+        web_app=WebAppInfo(url="https://choigan.github.io/liteppp"),
     )
     keyboard.add(btn_set_pppoe_keenetic_lite)
 
@@ -466,12 +648,13 @@ def handle_subsection_set_pppoe_tplink(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_pppoe_tplink_c20 = types.KeyboardButton(
         text="TP-LINK C20",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/c20ppp.html"),
     )
     keyboard.add(btn_set_pppoe_tplink_c20)
 
     btn_set_pppoe_tplink_8960n = types.KeyboardButton(
-        text="TP-LINK 8960N", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="TP-LINK 8961N",
+        web_app=WebAppInfo(url="https://choigan.github.io/8961nppp"),
     )
     keyboard.add(btn_set_pppoe_tplink_8960n)
 
