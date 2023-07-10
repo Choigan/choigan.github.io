@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Keenetic Lite 3</button>
+    </div>
+    <h3>Настройка PPPoE на Lite 3</h3>
+
+    <p>Открываем любой браузер на устройстве, которое подключено по <strong>Wi-Fi</strong> или с помощью
+        <strong>кабеля</strong> к роутеру.
+    </p>
+
+    <p>В адресной строке пишем <strong>192.168.1.1</strong> или <strong>my.keenetic.net</strong> и нажимаем
+        <strong>Enter</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/startwf1.jpg"></div>
+
+    <p>На экране должна открыться страница авторизации. По умолчанию имя пользователя и пароль — <strong>admin</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/startwf2.jpg"></div>
+
+    <p>Далее в левом меню нажимаем на пункт <strong>Мои сети и Wi-Fi</strong> и выбираем <strong>Домашняя сеть</strong>.
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/startwf3.jpg"></div>
+
+    <p>После этого откроются основные настройки, где мы сможем поменять <strong>Имя сети</strong> и
+        <strong>Пароль</strong>. Для изменение других настроек необходимо нажать на кнопку <strong>Дополнительные
+            настройки</strong>
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/startwf4.jpg"></div>
+
+    <p>В дополнительных настройках мы можем поменять такие параметры как:</p>
+    <ul>
+        <li>
+            <strong>Страна</strong>: указываем <strong>Россия</strong> или оставляем как есть.
+        </li>
+
+        <li>
+            <strong>Стандарт</strong>: по дефолту стоит значение <strong>802.11b/g/n</strong>. Рекомендуем выставить
+            <strong>802.11g/n</strong> или <strong>802.11n</strong>
+        </li>
+
+        <li>
+            <strong>Канал</strong>: для настройки этого парамета необходимо просканировать wi-fi сети в доме и выставить
+            самый свободный канал. Если нет возможности просканировать каналы, то лучше оставить в режиме
+            <strong>Авто</strong> или выставить один из непересекающихся каналов
+            <strong>1</strong>, <strong>6</strong> или <strong>11</strong>
+        </li>
+
+        <li>
+            <strong>Ширина канала</strong>: рекомендуем оставить настройку без изменений. Значение в <strong>20
+                МГц</strong> ставьте только в том случае, если живете в многоквартирном доме с большим количеством
+            других
+            wi-fi сетей.
+        </li>
+    </ul>
+    </p>
+    <div class="image-container"><img src="https://choigan.github.io/startwf5.jpg"></div>
+
+    <p>После изменения всех необходимых настроек нажимаем на кнопку <strong>Сохранить</strong>.
+</body>
+
+</html>
