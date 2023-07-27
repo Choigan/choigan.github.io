@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+
+        .style_hr {
+            border: none;
+            height: 2px;
+            background-color: #000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Команды ETTH QTech</button>
+    </div>
+    <p><strong>N</strong> - номер порта. <strong>Пример</strong>: (1/0/1), (0/0/1), (1/1).</p>
+    <p><strong>V</strong> - номер VLAN.</p>
+    <hr class="style_hr">
+
+    <h3>Основная проверка порта.</h3>
+
+    <p><strong>show interface ethernet N</strong> - вывести статус N-го порта.</p>
+    <p><strong>show mac-address-table interface ethernet N</strong> - вывести мак-адресса N-го порта.</p>
+    <p><strong>virtual-cable-test interface ethernet N</strong> - статус кабеля N-го порта.</p>
+    <p><strong>show running-config interface ethernet N</strong> - конфигурация N-го порта.</p>
+    <p><strong>show logging buffered level warnings</strong> - просмотр журнала событий.</p>
+    <hr>
+    <p><strong>show interface ethernet status</strong> - вывести статус всех портов.</p>
+    <p><strong>show interface brief</strong> - вывести статус всех портов.</p>
+    <p><strong>show running-config</strong> - конфигурация всех портов.</p>
+    <hr class="style_hr">
+
+    <h3>Порядок изменения настроек порта.</h3>
+
+    <p>Для изменения настроек порта сначала заходим в меню конфигурирования. Затем выбираем нужный порт. После внесения
+        необходимых изменений, выходим из меню конфигурирования и сохраняем изменения. В некоторых моделях для
+        входа в меню конфигурирования необходимо также прописать команду <strong>enable</strong>.
+    </p>
+
+    <p><strong>config</strong> - вход в меню конфигурирования.</p>
+    <p><strong>interface ethernet N</strong> - выбор порта конфигурирования.</p>
+    <p><strong>exit</strong> - выход в предыдущее меню конфигурирования.</p>
+    <p><strong>write / Y</strong> - сохранение внесенных изменений.</p>
+    <hr class="style_hr">
+
+
+    <p style="color: red;"><strong>Далее все команды выполняем в режиме конфигурирования!</strong></p>
+    <hr class="style_hr">
+
+
+    <h3>Перезагрузка порта.</h3>
+
+    <p><strong>shutdown</strong> - отключение порта.</p>
+    <p><strong>no shutdown</strong> - включение порта.</p>
+    <hr class="style_hr">
+
+
+    <h3>Основные команды настройки порта</h3>
+
+    <p><strong>switchport mode acces</strong> - перевод в режим абонентского порта.</p>
+    <p><strong>switchport mode trunk</strong> - перевод в режим магистрального порта.</p>
+    <hr>
+    <p><strong>switchport access vlan V</strong> - присваивание VLAN на абонентском порту.</p>
+    <p><strong>switchport trunk allowed vlan add V</strong> - добавление VLAN на магистральном порту.</p>
+    <p><strong>switchport mac-address dynamic maximum (1-5)</strong> - настройка количества мак-адрессов.</p>
+    <hr>
+    <p><strong>loopback-detection specified-vlan V</strong> - включение функции распознавания петли.</p>
+    <p><strong>loopback-detection control shutdown</strong> - функция отключения порта при распознавании петли.</p>
+    <p><strong>storm-control broadcast 64</strong> - ограничение штормового broadcast трафика до 64 Кбит/с.</p>
+    <p><strong>storm-control multicast 64</strong> - ограничение штормового multicast трафика до 64 Кбит/с.</p>
+    <hr>
+    <p><strong>speed-duplex auto</strong> - установка автоматического режима скорости и дуплекса.</p>
+    <p><strong>speed-duplex force10-full</strong> - установка скорости 10 Мбит/с в режиме full дуплекс.</p>
+    <p><strong>speed-duplex force100-full</strong> - установка скорости 100 Мбит/с в режиме full дуплекс.</p>
+    <p><strong>speed-duplex force10-half</strong> - установка скорости 10 Мбит/с в режиме half дуплекс.</p>
+    <p><strong>speed-duplex force100-half</strong> - установка скорости 100 Мбит/с в режиме half дуплекс.</p>
+    <p>*В случаях повреждения кабеля можно попробовать понизить скорость порта до 10 Мбит/с. Сначала пробуем режим
+        <strong>full</strong>, затем <strong>half</strong>.
+    </p>
+</body>
+
+</html>
