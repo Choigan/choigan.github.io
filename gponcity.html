@@ -110,12 +110,15 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             white-space: normal;
             word-wrap: break-word;
-            hyphens: none;
         }
 
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
+        }
+
+        .tooltip .tooltiptext .tooltip-line {
+            white-space: nowrap;
         }
     </style>
 </head>
@@ -160,8 +163,9 @@
 
     <h3>Обновление ПО.</h3>
     <p><strong>show firmware ont</strong> - показать загруженные ПО.</p>
-    <p><strong>schedule ont update N/ID <span class="tooltip">{прошивка}<span
-                    class="tooltiptext">ntu-rg-542x-2.5.8-build1068.fw.bin</span></span></strong> - запустить обновление
+    <p><strong>schedule ont update N/ID <span class="tooltip">{прошивка}<span class="tooltiptext"><span
+                        class="tooltip-line">ntu-rg-542x-2.5.8-build1068.fw.bin</span></span></span></strong> -
+        запустить обновление
         ПО.</p>
     <p><strong>no schedule ont update N/ID</strong> - отменить обновление ПО.</p>
     <p><strong>show schedule ont update</strong> - просмотр списка задач обновления ПО.</p>
@@ -197,8 +201,10 @@
     <p><strong>interface ont N/ID</strong> - выбор интерфейса конфигурирования.</p>
     <p><strong>serial <span class="tooltip">{серийный номер}<span
                     class="tooltiptext">ELTX85004455</span></span></strong> - присваиваем серийный номер.</p>
-    <p><strong>template <span class="tooltip">{шаблон}<span
-                    class="tooltiptext">ntu-rg(0-7)<br>BRIDGE(0-7)</span></span></strong> - присваиваем шаблон.</p>
+    <p><strong>template <span class="tooltip">{шаблон}<span class="tooltiptext"><span
+                        class="tooltip-line">ntu-rg(0-7)</span><br><span
+                        class="tooltip-line">BRIDGE(0-7)</span></span></span></strong> - присваиваем
+        шаблон.</p>
     <p><strong>do commit</strong> - сохранение изменений.</p>
     <hr class="style_hr">
 
