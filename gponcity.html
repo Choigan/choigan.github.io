@@ -120,7 +120,9 @@
     <div class="container">
         <button class="reload-button" onclick="location.reload()">Команды PON Eltex</button>
     </div>
-    <p><strong>N</strong> - номер порта. (От <strong>0</strong> до <strong>3</strong> или от <strong>0</strong> до <strong>7</strong>)</p>
+    <p><strong>N</strong> - номер порта. (От <strong>0</strong> до <strong>3</strong> или от <strong>0</strong> до
+        <strong>7</strong>)
+    </p>
     <p><strong>ID</strong> - идентификатор порта. (от 0 до 127)</p>
     <p>Сигнал до <strong>22</strong> - отличный.</p>
     <p>Сигнал от <strong>22</strong> до <strong>27</strong> - хороший.</p>
@@ -154,7 +156,9 @@
 
     <h3>Обновление ПО.</h3>
     <p><strong>show firmware ont</strong> - показать загруженные ПО.</p>
-    <p><strong>schedule ont update N/ID <span class="tooltip">{прошивка}<span class="tooltiptext">ntu-rg-542x-2.5.8-build1068.fw.bin</span></span></strong> - запустить обновление ПО.</p>
+    <p><strong>schedule ont update N/ID <span class="tooltip">{прошивка}<span
+                    class="tooltiptext">ntu-rg-542x-2.5.8-build1068.fw.bin</span></span></strong> - запустить обновление
+        ПО.</p>
     <p><strong>no schedule ont update N/ID</strong> - отменить обновление ПО.</p>
     <p><strong>show schedule ont update</strong> - просмотр списка задач обновления ПО.</p>
     <p><strong>clear schedule ont update</strong> - очистка списка задач обновления ПО.</p>
@@ -163,9 +167,12 @@
 
     <h3>Поиск ONT</h3>
 
-    <p><strong>show interface ont 0-7(3) online grep <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
-    <p><strong>show interface ont 0-7(3) offline grep <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
-    <p><strong>show mac interface gpon-port 0-7(3) include mac-address <span class="tooltip">XX:XX:XX:XX:XX:XX<span class="tooltiptext">CC:9D:A2:D5:CB:C4</span></span></strong> - поиск по мак-адрессу.</p>
+    <p><strong>show interface ont 0-7(3) online grep <span class="tooltip">{серийный номер}<span
+                    class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
+    <p><strong>show interface ont 0-7(3) offline grep <span class="tooltip">{серийный номер}<span
+                    class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
+    <p><strong>show mac interface gpon-port 0-7(3) include mac-address <span class="tooltip">XX:XX:XX:XX:XX:XX<span
+                    class="tooltiptext">CC:9D:A2:D5:CB:C4</span></span></strong> - поиск по мак-адрессу.</p>
     <hr class="style_hr">
 
     <h3>Отключение и включение интерфейса(порта).</h3>
@@ -184,8 +191,10 @@
 
     <p><strong>config</strong> - вход в меню конфигурирования</p>
     <p><strong>interface ont N/ID</strong> - выбор интерфейса конфигурирования.</p>
-    <p><strong>serial <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - присваиваем серийный номер.</p>
-    <p><strong>template <span class="tooltip">{шаблон}<span class="tooltiptext">ntu-rg(0-7)<br>BRIDGE(0-7)</span></span></strong> - присваиваем шаблон.</p>
+    <p><strong>serial <span class="tooltip">{серийный номер}<span
+                    class="tooltiptext">ELTX85004455</span></span></strong> - присваиваем серийный номер.</p>
+    <p><strong>template <span class="tooltip">{шаблон}<span
+                    class="tooltiptext">ntu-rg(0-7)<br>BRIDGE(0-7)</span></span></strong> - присваиваем шаблон.</p>
     <p><strong>do commit</strong> - сохранение изменений.</p>
     <hr class="style_hr">
 
@@ -202,7 +211,8 @@
 
     <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
     <p><strong>user</strong> - открываем подраздел USER.</p>
-    <p><strong>delete user <span class="tooltip">{логин}<span class="tooltiptext">1910101<br>1105151</span></span></strong> - удаляем пользователя.</p>
+    <p><strong>delete user <span class="tooltip">{логин}<span
+                    class="tooltiptext">1910101<br>1105151</span></span></strong> - удаляем пользователя.</p>
     <p><strong>commit</strong> - сохраняем изменения.</p>
     <hr class="style_hr">
 
@@ -211,57 +221,103 @@
 
     <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
     <p><strong>ont</strong> - открываем подраздел ONT.</p>
-    <p><strong>delete ont <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - удаляем ONT.</p>
+    <p><strong>delete ont <span class="tooltip">{полный серийный номер}<span
+                    class="tooltiptext">454C545885004455</span></span></strong> - удаляем ONT.</p>
     <p><strong>commit</strong> - сохраняем изменения.</p>
     <hr class="style_hr">
 
     <h3>Первоначальная настройка</h3>
     <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
     <p><strong>ont</strong> - открываем раздел ONT.</p>
-    <p><strong>show list include <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - находим ONT.(*копируем полный серийный номер).</p>
+    <p><strong>show list include <span class="tooltip">{полный серийный номер}<span
+                    class="tooltiptext">454C545885004455</span></span></strong> - находим ONT.(*копируем полный серийный
+        номер).</p>
     <p><strong>exit</strong> - выходим до меню ACS.</p>
     <hr>
     <hr>
     <p><strong>user</strong> - открываем подраздел USER.</p>
     <p><strong>add user {логин}</strong> - создаем пользователя.</p>
     <p><strong>user {логин}</strong> - заходим в настройки пользователя.</p>
-    <p><strong>set pon_serial <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - присваиваем серийный номер.</p>
-    <p><strong>set profile <span class="tooltip">{профиль}<span class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong> - присваиваем профиль.</p>
-    <p><strong>set ppp_login <span class="tooltip">{логин}<span class="tooltiptext">1910101<br>1105151</span></span></strong> - присваиваем логин.</p>
-    <p><strong>set ppp_password <span class="tooltip">{пароль}<span class="tooltiptext">f3RoPguvrr</span></span></strong> - присваиваем пароль.</p>
+    <p><strong>set pon_serial <span class="tooltip">{полный серийный номер}<span
+                    class="tooltiptext">454C545885004455</span></span></strong> - присваиваем серийный номер.</p>
+    <p><strong>set profile <span class="tooltip">{профиль}<span
+                    class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong>
+        - присваиваем профиль.</p>
+    <p><strong>set ppp_login <span class="tooltip">{логин}<span
+                    class="tooltiptext">1910101<br>1105151</span></span></strong> - присваиваем логин.</p>
+    <p><strong>set ppp_password <span class="tooltip">{пароль}<span
+                    class="tooltiptext">f3RoPguvrr</span></span></strong> - присваиваем пароль.</p>
     <hr>
     <p>*Если дополнительно нужно настроить телефон, то дописываем следующие команды.</p>
     <p><strong>set voice1(2)_enable enabled</strong> - включаем телефонный порт.</p>
-    <p><strong>set voice1(2)_number <span class="tooltip">{номер}<span class="tooltiptext">20110</span></span></strong> - присваиваем номер.</p>
-    <p><strong>set voice1(2)_password <span class="tooltip">{пароль}<span class="tooltiptext">f3RoPguvrrRjmgjYTKiR</span></span></strong> - присваиваем пароль.</p>
+    <p><strong>set voice1(2)_number <span class="tooltip">{номер}<span class="tooltiptext">20110</span></span></strong>
+        - присваиваем номер.</p>
+    <p><strong>set voice1(2)_password <span class="tooltip">{пароль}<span
+                    class="tooltiptext">f3RoPguvrrRjmgjYTKiR</span></span></strong> - присваиваем пароль.</p>
     <hr>
     <p><strong>commit</strong> - сохраняем изменения.</p>
     <p><strong>exit</strong> - выходим до меню ACS.</p>
     <hr>
     <hr>
     <p><strong>ont</strong> - открываем подраздел ONT.</p>
-    <p><strong>ont <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - заходим в настройки ONT.</p>
-    <p><strong>set profile <span class="tooltip">{профиль}<span class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong> - присваиваем профиль.</p>
+    <p><strong>ont <span class="tooltip">{полный серийный номер}<span
+                    class="tooltiptext">454C545885004455</span></span></strong> - заходим в настройки ONT.</p>
+    <p><strong>set profile <span class="tooltip">{профиль}<span
+                    class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong>
+        - присваиваем профиль.</p>
     <p><strong>commit</strong> - сохраняем изменения.</p>
     <p><strong>reconfigure</strong> - запускаем перенастройку ONT.</p>
     <p><strong>exit</strong> - выходим в главное меню.</p>
     <hr>
 </body>
 
+
 <script>
+    // JavaScript код для отображения и позиционирования подсказки
     const tooltipElement = document.querySelector('.tooltip');
     const tooltipTextElement = tooltipElement.querySelector('.tooltiptext');
+    const targetElement = document.getElementById('tooltipTarget');
 
-    tooltipElement.addEventListener('click', () => {
-        tooltipTextElement.classList.toggle('active');
-        if (tooltipTextElement.classList.contains('active')) {
-            const lineHeight = 20;
-            const lineCount = tooltipTextElement.textContent.split('\n').length;
-            tooltipTextElement.style.height = '${lineCount * lineHeight}px';
-        } else {
-            tooltipTextElement.style.height = 'auto';
+    // Показать подсказку при клике на элемент
+    targetElement.addEventListener('click', showTooltip);
+
+    function showTooltip(event) {
+        // Показываем подсказку
+        tooltipElement.style.display = 'block';
+
+        // Определение размеров экрана
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+
+        // Определение размеров подсказки
+        const tooltipWidth = tooltipElement.offsetWidth;
+        const tooltipHeight = tooltipElement.offsetHeight;
+
+        // Определение координат элемента и его размеров
+        const targetRect = targetElement.getBoundingClientRect();
+        const targetX = targetRect.left;
+        const targetY = targetRect.top;
+        const targetWidth = targetRect.width;
+        const targetHeight = targetRect.height;
+
+        // Определение координат подсказки
+        let tooltipX = targetX + targetWidth + 10; // 10 пикселей отступа от элемента
+        let tooltipY = targetY;
+
+        // Проверка, не выходит ли подсказка за пределы экрана по горизонтали
+        if (tooltipX + tooltipWidth > screenWidth) {
+            tooltipX = targetX - tooltipWidth - 10;
         }
-    });
+
+        // Проверка, не выходит ли подсказка за пределы экрана по вертикали
+        if (tooltipY + tooltipHeight > screenHeight) {
+            tooltipY = targetY - tooltipHeight + targetHeight;
+        }
+
+        // Устанавливаем координаты подсказки
+        tooltipElement.style.left = tooltipX + 'px';
+        tooltipElement.style.top = tooltipY + 'px';
+    }
 </script>
 
 </html>
