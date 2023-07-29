@@ -295,23 +295,26 @@
         } else {
             tooltipTextElement.style.height = 'auto';
             tooltipTextElement.style.width = 'auto';
+            tooltipTextElement.style.left = '50%';
+            tooltipTextElement.style.right = 'auto';
+
+            // Позиция подсказки относительно размеров окна просмотра
+            const tooltipRect = tooltipTextElement.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
 
             // Проверяем, выходит ли подсказка за пределы экрана по горизонтали
-            const tooltipWidth = tooltipTextElement.offsetWidth;
-            const viewportWidth = window.innerWidth;
-            const tooltipLeft = tooltipElement.getBoundingClientRect().left;
-            const isOverflowingRight = tooltipLeft + tooltipWidth > viewportWidth;
-
-            // Корректируем положение подсказки, если она выходит за пределы экрана
-            if (isOverflowingRight) {
+            if (tooltipRect.left < 0) {
+                // Подсказка выходит за левую границу, сдвигаем ее вправо
+                tooltipTextElement.style.left = '0';
+                tooltipTextElement.style.right = 'auto';
+            } else if (tooltipRect.right > viewportWidth) {
+                // Подсказка выходит за правую границу, сдвигаем ее влево
                 tooltipTextElement.style.left = 'auto';
                 tooltipTextElement.style.right = '0';
-            } else {
-                tooltipTextElement.style.left = '50%';
-                tooltipTextElement.style.right = 'auto';
             }
         }
     });
+
 
 </script>
 
