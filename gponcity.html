@@ -273,50 +273,57 @@
 
 
 <script>
-    // JavaScript код для отображения и позиционирования подсказки
+    // JavaScript code to show and position the tooltip
     const tooltipElement = document.querySelector('.tooltip');
     const tooltipTextElement = tooltipElement.querySelector('.tooltiptext');
     const targetElement = document.getElementById('tooltipTarget');
 
-    // Показать подсказку при клике на элемент
-    targetElement.addEventListener('click', showTooltip);
+    // Show tooltip on mouseover
+    targetElement.addEventListener('mouseover', showTooltip);
+    // Hide tooltip on mouseout
+    targetElement.addEventListener('mouseout', hideTooltip);
 
     function showTooltip(event) {
-        // Показываем подсказку
+        // Show the tooltip
         tooltipElement.style.display = 'block';
 
-        // Определение размеров экрана
+        // Get screen dimensions
         const screenWidth = window.innerWidth;
         const screenHeight = window.innerHeight;
 
-        // Определение размеров подсказки
+        // Get tooltip dimensions
         const tooltipWidth = tooltipElement.offsetWidth;
         const tooltipHeight = tooltipElement.offsetHeight;
 
-        // Определение координат элемента и его размеров
+        // Get target element's coordinates and dimensions
         const targetRect = targetElement.getBoundingClientRect();
         const targetX = targetRect.left;
         const targetY = targetRect.top;
         const targetWidth = targetRect.width;
         const targetHeight = targetRect.height;
 
-        // Определение координат подсказки
-        let tooltipX = targetX + targetWidth + 10; // 10 пикселей отступа от элемента
+        // Calculate tooltip coordinates
+        let tooltipX = targetX + targetWidth + 10; // 10 pixels offset from the element
         let tooltipY = targetY;
 
-        // Проверка, не выходит ли подсказка за пределы экрана по горизонтали
+        // Check if the tooltip goes off the screen horizontally
         if (tooltipX + tooltipWidth > screenWidth) {
             tooltipX = targetX - tooltipWidth - 10;
         }
 
-        // Проверка, не выходит ли подсказка за пределы экрана по вертикали
+        // Check if the tooltip goes off the screen vertically
         if (tooltipY + tooltipHeight > screenHeight) {
-            tooltipY = targetY - tooltipHeight + targetHeight;
+            tooltipY = screenHeight - tooltipHeight;
         }
 
-        // Устанавливаем координаты подсказки
+        // Set tooltip coordinates
         tooltipElement.style.left = tooltipX + 'px';
         tooltipElement.style.top = tooltipY + 'px';
+    }
+
+    function hideTooltip() {
+        // Hide the tooltip on mouseout
+        tooltipElement.style.display = 'none';
     }
 </script>
 
