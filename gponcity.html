@@ -271,60 +271,30 @@
     <hr>
 </body>
 
-
 <script>
-    // JavaScript code to show and position the tooltip
     const tooltipElement = document.querySelector('.tooltip');
     const tooltipTextElement = tooltipElement.querySelector('.tooltiptext');
-    const targetElement = document.getElementById('tooltipTarget');
 
-    // Show tooltip on mouseover
-    targetElement.addEventListener('mouseover', showTooltip);
-    // Hide tooltip on mouseout
-    targetElement.addEventListener('mouseout', hideTooltip);
+    tooltipElement.addEventListener('click', () => {
+        tooltipTextElement.classList.toggle('active');
 
-    function showTooltip(event) {
-        // Show the tooltip
-        tooltipElement.style.display = 'block';
+        if (tooltipTextElement.classList.contains('active')) {
+            const lineHeight = 20;
+            const lineCount = tooltipTextElement.textContent.split('\n').length;
+            tooltipTextElement.style.height = `${lineCount * lineHeight}px`;
 
-        // Get screen dimensions
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-
-        // Get tooltip dimensions
-        const tooltipWidth = tooltipElement.offsetWidth;
-        const tooltipHeight = tooltipElement.offsetHeight;
-
-        // Get target element's coordinates and dimensions
-        const targetRect = targetElement.getBoundingClientRect();
-        const targetX = targetRect.left;
-        const targetY = targetRect.top;
-        const targetWidth = targetRect.width;
-        const targetHeight = targetRect.height;
-
-        // Calculate tooltip coordinates
-        let tooltipX = targetX + targetWidth + 10; // 10 pixels offset from the element
-        let tooltipY = targetY;
-
-        // Check if the tooltip goes off the screen horizontally
-        if (tooltipX + tooltipWidth > screenWidth) {
-            tooltipX = targetX - tooltipWidth - 10;
+            // Check if tooltip overflows on the right side of the screen
+            const tooltipWidth = tooltipTextElement.clientWidth;
+            const tooltipLeft = tooltipElement.offsetLeft - (tooltipWidth / 2);
+            if (tooltipLeft < 0) {
+                tooltipTextElement.style.left = '0';
+            } else {
+                tooltipTextElement.style.left = '50%';
+            }
+        } else {
+            tooltipTextElement.style.height = 'auto';
         }
-
-        // Check if the tooltip goes off the screen vertically
-        if (tooltipY + tooltipHeight > screenHeight) {
-            tooltipY = screenHeight - tooltipHeight;
-        }
-
-        // Set tooltip coordinates
-        tooltipElement.style.left = tooltipX + 'px';
-        tooltipElement.style.top = tooltipY + 'px';
-    }
-
-    function hideTooltip() {
-        // Hide the tooltip on mouseout
-        tooltipElement.style.display = 'none';
-    }
+    });
 </script>
 
 </html>
