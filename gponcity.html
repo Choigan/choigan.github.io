@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid #dddddd;
+            table-layout: fixed;
+            font-size: 12px;
+
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+            word-wrap: break-word;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+        }
+
+        th:first-child,
+        td:first-child {
+            border-left: none;
+        }
+
+        th:last-child,
+        td:last-child {
+            border-right: none;
+        }
+
+        .style_hr {
+            border: none;
+            height: 2px;
+            background-color: #000;
+        }
+
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px dotted #999;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 150px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Команды PON Eltex</button>
+    </div>
+    <p><strong>N</strong> - номер порта. (От <strong>0</strong> до <strong>3</strong> или от <strong>0</strong> до <strong>7</strong>)</p>
+    <p><strong>ID</strong> - идентификатор порта. (от 0 до 127)</p>
+    <p>Сигнал до <strong>22</strong> - отличный.</p>
+    <p>Сигнал от <strong>22</strong> до <strong>27</strong> - хороший.</p>
+    <p>Сигнал выше <strong>27</strong> - плохой.</p>
+    <hr class="style_hr">
+
+    <h3>Основная проверка ONT.</h3>
+
+    <p><strong>show interface ont N/ID online</strong> - просмотр онлайн статуса.</p>
+    <p><strong>show interface ont N/ID offline</strong> - просмотр оффлайн статуса.</p>
+    <p><strong>show mac interface ont N/ID</strong> - вывести мак-адресса.</p>
+    <p><strong>show interface ont N/ID connections</strong> - статистика переподключений.</p>
+    <p><strong>show running-config interface ont N/ID</strong> - просмотр конфигурации.</p>
+    <p><strong>show log ltp grep N/ID</strong> - просмотр журнала событий.</p>
+    <hr>
+
+    <h3>Дополнительная проверка ONT.</h3>
+
+    <p><strong>show interface ont N/ID ports</strong> - состояние подключения LAN-портов.</p>
+    <p><strong>show interface ont N/ID state</strong> - состояние ONT.</p>
+    <p><strong>show interface ont N/ID laser</strong> - параметры оптического модуля.</p>
+    <p><strong>show interface ont N/ID rssi</strong> - уровень мощности сигнала.</p>
+    <hr class="style_hr">
+
+
+    <h3>Сброс и перезагрузка ONT.</h3>
+    <p><strong>send omci restore interface ont N/ID</strong> - сброс.</p>
+    <p><strong>send omci reset interface ont N/ID</strong> - перезагрузка.</p>
+    <hr class="style_hr">
+
+
+    <h3>Обновление ПО.</h3>
+    <p><strong>show firmware ont</strong> - показать загруженные ПО.</p>
+    <p><strong>schedule ont update N/ID {прошивка}</strong> - запустить обновление ПО.</p>
+    <p><strong>no schedule ont update N/ID</strong> - отменить обновление ПО.</p>
+    <p><strong>show schedule ont update</strong> - просмотр списка задач обновления ПО.</p>
+    <p><strong>clear schedule ont update</strong> - очистка списка задач обновления ПО.</p>
+    <hr class="style_hr">
+
+
+    <h3>Поиск ONT</h3>
+
+    <p><strong>show interface ont 0-7(3) online grep <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
+    <p><strong>show interface ont 0-7(3) offline grep <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - поиск по серийному номеру.</p>
+    <p><strong>show mac interface gpon-port 0-7(3) include mac-address <span class="tooltip">XX:XX:XX:XX:XX:XX<span class="tooltiptext">CC:9D:A2:D5:CB:C4</span></span></strong> - поиск по мак-адрессу.</p>
+    <hr class="style_hr">
+
+    <h3>Отключение и включение интерфейса(порта).</h3>
+
+    <p><strong>config</strong> - вход в меню конфигурирования</p>
+    <p><strong>interface ont N/ID</strong> - выбор интерфейса конфигурирования.</p>
+    <p><strong>shutdown</strong> - отключение порта.</p>
+    <p><strong>do commit</strong> - сохранение изменений.</p>
+    <hr>
+    <p><strong>no shutdown</strong> - включение порта.</p>
+    <p><strong>do commit</strong> - сохранение изменений.</p>
+    <hr class="style_hr">
+
+
+    <h3>Привязка ONT к интерфейсу.</h3>
+
+    <p><strong>config</strong> - вход в меню конфигурирования</p>
+    <p><strong>interface ont N/ID</strong> - выбор интерфейса конфигурирования.</p>
+    <p><strong>serial <span class="tooltip">{серийный номер}<span class="tooltiptext">ELTX85004455</span></span></strong> - присваиваем серийный номер.</p>
+    <p><strong>template <span class="tooltip">{шаблон}<span class="tooltiptext">ntu-rg(0-7)<br>BRIDGE(0-7)</span></span></strong> - присваиваем шаблон.</p>
+    <p><strong>do commit</strong> - сохранение изменений.</p>
+    <hr class="style_hr">
+
+
+    <h3>Отвязка ONT от интерфейса.</h3>
+
+    <p><strong>config</strong> - вход в меню конфигурирования</p>
+    <p><strong> no interface ont N/ID</strong> - очистка настроек интерфейса.</p>
+    <p><strong>do commit</strong> - сохранение изменений.</p>
+    <hr class="style_hr">
+
+
+    <h3>Удаление пользователя.</h3>
+
+    <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
+    <p><strong>user</strong> - открываем подраздел USER.</p>
+    <p><strong>delete user <span class="tooltip">{логин}<span class="tooltiptext">1910101<br>1105151</span></span></strong> - удаляем пользователя.</p>
+    <p><strong>commit</strong> - сохраняем изменения.</p>
+    <hr class="style_hr">
+
+
+    <h3>Удаление ONT.</h3>
+
+    <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
+    <p><strong>ont</strong> - открываем подраздел ONT.</p>
+    <p><strong>delete ont <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - удаляем ONT.</p>
+    <p><strong>commit</strong> - сохраняем изменения.</p>
+    <hr class="style_hr">
+
+    <h3>Первоначальная настройка</h3>
+    <p><strong>acs</strong> - переходим в раздел конфигурирования ACS.</p>
+    <p><strong>ont</strong> - открываем раздел ONT.</p>
+    <p><strong>show list include <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - находим ONT.(*копируем полный серийный номер).</p>
+    <p><strong>exit</strong> - выходим до меню ACS.</p>
+    <hr>
+    <hr>
+    <p><strong>user</strong> - открываем подраздел USER.</p>
+    <p><strong>add user {логин}</strong> - создаем пользователя.</p>
+    <p><strong>user {логин}</strong> - заходим в настройки пользователя.</p>
+    <p><strong>set pon_serial <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - присваиваем серийный номер.</p>
+    <p><strong>set profile <span class="tooltip">{профиль}<span class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong> - присваиваем профиль.</p>
+    <p><strong>set ppp_login <span class="tooltip">{логин}<span class="tooltiptext">1910101<br>1105151</span></span></strong> - присваиваем логин.</p>
+    <p><strong>set ppp_password <span class="tooltip">{пароль}<span class="tooltiptext">f3RoPguvrr</span></span></strong> - присваиваем пароль.</p>
+    <hr>
+    <p>*Если дополнительно нужно настроить телефон, то дописываем следующие команды.</p>
+    <p><strong>set voice1(2)_enable enabled</strong> - включаем телефонный порт.</p>
+    <p><strong>set voice1(2)_number <span class="tooltip">{номер}<span class="tooltiptext">20110</span></span></strong> - присваиваем номер.</p>
+    <p><strong>set voice1(2)_password <span class="tooltip">{пароль}<span class="tooltiptext">f3RoPguvrrRjmgjYTKiR</span></span></strong> - присваиваем пароль.</p>
+    <hr>
+    <p><strong>commit</strong> - сохраняем изменения.</p>
+    <p><strong>exit</strong> - выходим до меню ACS.</p>
+    <hr>
+    <hr>
+    <p><strong>ont</strong> - открываем подраздел ONT.</p>
+    <p><strong>ont <span class="tooltip">{полный серийный номер}<span class="tooltiptext">454C545885004455</span></span></strong> - заходим в настройки ONT.</p>
+    <p><strong>set profile <span class="tooltip">{профиль}<span class="tooltiptext">ntu-rg<br>ntu-2w<br>ntu1402<br>ntu5421<br>ntu5402<br>ntu5440</span></span></strong> - присваиваем профиль.</p>
+    <p><strong>commit</strong> - сохраняем изменения.</p>
+    <p><strong>reconfigure</strong> - запускаем перенастройку ONT.</p>
+    <p><strong>exit</strong> - выходим в главное меню.</p>
+    <hr>
+</body>
+
+<script>
+    const tooltipElement = document.querySelector('.tooltip');
+    const tooltipTextElement = tooltipElement.querySelector('.tooltiptext');
+
+    tooltipElement.addEventListener('click', () => {
+        tooltipTextElement.classList.toggle('active');
+        if (tooltipTextElement.classList.contains('active')) {
+            const lineHeight = 20;
+            const lineCount = tooltipTextElement.textContent.split('\n').length;
+            tooltipTextElement.style.height = '${lineCount * lineHeight}px';
+        } else {
+            tooltipTextElement.style.height = 'auto';
+        }
+    });
+</script>
+
+</html>
