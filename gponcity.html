@@ -94,6 +94,7 @@
         .tooltip .tooltiptext {
             visibility: hidden;
             width: auto;
+            max-width: 250px;
             background-color: #333;
             color: #fff;
             text-align: center;
@@ -101,12 +102,14 @@
             padding: 8px;
             position: absolute;
             z-index: 1;
-            bottom: 150%;
+            bottom: calc(100% + 8px);
             left: 50%;
-            transform: translateX(-50);
+            transform: translateX(-50%);
             opacity: 0;
             transition: opacity 0.3s;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         .tooltip:hover .tooltiptext {
@@ -284,7 +287,22 @@
             tooltipTextElement.style.width = 'auto';
         } else {
             tooltipTextElement.style.height = 'auto';
-            tooltipTextElement.style.width = '250px';
+            tooltipTextElement.style.width = 'auto';
+
+            // Проверяем, выходит ли подсказка за пределы экрана по горизонтали
+            const tooltipWidth = tooltipTextElement.offsetWidth;
+            const viewportWidth = window.innerWidth;
+            const tooltipLeft = tooltipElement.getBoundingClientRect().left;
+            const isOverflowingRight = tooltipLeft + tooltipWidth > viewportWidth;
+
+            // Корректируем положение подсказки, если она выходит за пределы экрана
+            if (isOverflowingRight) {
+                tooltipTextElement.style.left = 'auto';
+                tooltipTextElement.style.right = '0';
+            } else {
+                tooltipTextElement.style.left = '50%';
+                tooltipTextElement.style.right = 'auto';
+            }
         }
     });
 
