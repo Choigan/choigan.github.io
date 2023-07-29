@@ -85,15 +85,15 @@
             background-color: #000;
         }
 
-        .tooltips {
+        .tooltip {
             position: relative;
             cursor: pointer;
             border-bottom: 1px dotted #999;
         }
 
-        .tooltips .tooltiptext {
+        .tooltip .tooltiptext {
             visibility: hidden;
-            width: 150px;
+            width: auto;
             background-color: #333;
             color: #fff;
             text-align: center;
@@ -109,7 +109,7 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
-        .tooltips:hover .tooltiptext {
+        .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
@@ -276,25 +276,18 @@
     const tooltipTextElement = tooltipElement.querySelector('.tooltiptext');
 
     tooltipElement.addEventListener('click', () => {
-        tooltipTextElement.classList.toggle('active');
+        const tooltipTextIsActive = tooltipTextElement.style.visibility === 'visible';
+        tooltipTextElement.style.visibility = tooltipTextIsActive ? 'hidden' : 'visible';
 
-        if (tooltipTextElement.classList.contains('active')) {
-            const lineHeight = 20;
-            const lineCount = tooltipTextElement.textContent.split('\n').length;
-            tooltipTextElement.style.height = `${lineCount * lineHeight}px`;
-
-            // Check if tooltip overflows on the right side of the screen
-            const tooltipWidth = tooltipTextElement.clientWidth;
-            const tooltipLeft = tooltipElement.offsetLeft - (tooltipWidth / 2);
-            if (tooltipLeft < 0) {
-                tooltipTextElement.style.left = '0';
-            } else {
-                tooltipTextElement.style.left = '50%';
-            }
+        if (tooltipTextIsActive) {
+            tooltipTextElement.style.height = 'auto';
+            tooltipTextElement.style.width = 'auto';
         } else {
             tooltipTextElement.style.height = 'auto';
+            tooltipTextElement.style.width = '250px';
         }
     });
+
 </script>
 
 </html>
