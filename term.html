@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>БОТ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+        crossorigin="anonymous" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #ffccff, #99ccff);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .reload-button {
+            display: inline;
+            padding: 0;
+            background-color: transparent;
+            color: #000000;
+            font-size: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        .image-container {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: #000000;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product .photo {
+            flex: 1;
+            margin-right: 30px;
+        }
+
+        .product .details {
+            flex: 2;
+        }
+
+        .product h2 {
+            font-size: 16px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .product ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .product li {
+            font-size: 12px;
+            list-style: none;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .product .highlight {
+            color: #e67e22;
+            font-weight: bold;
+        }
+
+        .product img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Скрыть картинки по умолчанию */
+        .fullscreen-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .fullscreen-image img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <button class="reload-button" onclick="location.reload()">Терминалы</button>
+    </div>
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/RG-5440G.png " class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Eltex NTU-RG-5420G-WAC</h2>
+            <ul>
+                <li><b>Тип:</b> GPON</li>
+                <li><b>WIFI:</b> 2.4 Ghz, 5 Ghz</li>
+                <li><b>Режим:</b> Роутер</li>
+                <li><b>Порты:</b> 1000 Мбит</li>
+                <li class="highlight">Цена: 6600 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/RG-5440G.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Eltex NTU-RG-5440G-WAC</h2>
+            <ul>
+                <li><b>Тип:</b> GPON</li>
+                <li><b>WIFI:</b> 2.4 Ghz, 5 Ghz</li>
+                <li><b>Режим:</b> Роутер</li>
+                <li><b>Порты:</b> 1000 Мбит</li>
+                <li class="highlight">Цена: 6600 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/5421.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Eltex NTU-RG-5421G-WAC</h2>
+            <ul>
+                <li><b>Тип:</b> GPON</li>
+                <li><b>WIFI:</b> 2.4 Ghz, 5 Ghz</li>
+                <li><b>Режим:</b> Роутер</li>
+                <li><b>Порты:</b> 1000 Мбит</li>
+                <li class="highlight">Цена: 6600 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/NTU-1.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Eltex NTU-1</h2>
+            <ul>
+                <li><b>Тип:</b> GPON</li>
+                <li><b>WIFI:</b> Нет</li>
+                <li><b>Режим:</b> Bridge</li>
+                <li><b>Порты:</b> 1000 Мбит</li>
+                <li class="highlight">Цена: 2770 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/qtech_epon.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>QTech Qent-9r3-1G</h2>
+            <ul>
+                <li><b>Тип:</b> GPON</li>
+                <li><b>WIFI:</b> Нет</li>
+                <li><b>Режим:</b> Bridge</li>
+                <li><b>Порты:</b> 1000 Мбит</li>
+                <li class="highlight">Цена: 1690 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/medik.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>GIGALINK GL-MC-UTPG-SFPG-F.r2</h2>
+            <ul>
+                <li><b>Тип:</b> Медиаконвертер</li>
+                <li><b>WIFI:</b> Нет</li>
+                <li><b>Порты:</b> 100 Мбит</li>
+                <li class="highlight">Цена: 1500 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="fullscreen-image">
+        <img src="" class="fullscreen-image-content">
+    </div>
+
+</body>
+
+<script>
+    const productBlocks = document.querySelectorAll('.product');
+    const fullscreenImage = document.querySelector('.fullscreen-image');
+    const fullscreenImageContent = document.querySelector('.fullscreen-image-content');
+
+    productBlocks.forEach(productBlock => {
+        const thumbnailImage = productBlock.querySelector('.thumbnail-image');
+        productBlock.addEventListener('click', () => {
+            fullscreenImageContent.src = thumbnailImage.src;
+            // Здесь вы можете также обновлять другие данные в полноэкранном режиме, например, считывая данные из дочерних элементов .details
+            fullscreenImage.style.display = 'block';
+        });
+    });
+
+    fullscreenImage.addEventListener('click', () => {
+        fullscreenImage.style.display = 'none';
+    });
+</script>
+
+</html>
