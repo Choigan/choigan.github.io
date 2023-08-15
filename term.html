@@ -233,10 +233,10 @@
 
     productBlocks.forEach(productBlock => {
         const thumbnailImage = productBlock.querySelector('.thumbnail-image');
-        productBlock.addEventListener('click', () => {
+        thumbnailImage.addEventListener('click', (event) => {
             fullscreenImageContent.src = thumbnailImage.src;
-            // Здесь вы можете также обновлять другие данные в полноэкранном режиме, например, считывая данные из дочерних элементов .details
             fullscreenImage.style.display = 'block';
+            event.stopPropagation();
         });
     });
 

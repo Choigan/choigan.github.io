@@ -122,84 +122,79 @@
 
 <body>
     <div class="container">
-        <button class="reload-button" onclick="location.reload()">Роутеры</button>
+        <button class="reload-button" onclick="location.reload()">Приставки</button>
     </div>
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/archer_c20.png" class="thumbnail-image">
+            <img src="https://choigan.github.io/TVIP-705.png" class="thumbnail-image">
         </div>
         <div class="details">
-            <h2>Tp-Link Archer C20</h2>
+            <h2>TVIP-705</h2>
             <ul>
-                <li><b>Тип:</b> Ethernet</li>
-                <li><b>WIFI:</b> 2.4 Ghz, 5 Ghz</li>
-                <li><b>Режим:</b> Роутер, усилитель, точка-доступа</li>
-                <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 2515 ₽</li>
+                <li><b>Система:</b> Android 11</li>
+                <li><b>Разрешение:</b> 3840x2160(HDR)</li>
+                <li><b>Подключение:</b> Провод, 2.4 Ghz, 5 Ghz</li>
+                <li class="highlight">Цена: 5800 ₽</li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/archer_g5.png" class="thumbnail-image">
+            <img src="https://choigan.github.io/TVIP-710.png" class="thumbnail-image">
         </div>
         <div class="details">
-            <h2>Tp-Link Archer G5</h2>
+            <h2>TVIP-710</h2>
             <ul>
-                <li><b>Тип:</b> Ethernet</li>
-                <li><b>WIFI:</b> 2.4 Ghz, 5 Ghz</li>
-                <li><b>Режим:</b> Роутер, усилитель, точка-доступа</li>
-                <li><b>Порты:</b> 1000 Мбит</li>
-                <li class="highlight">Цена: 3500 ₽</li>
+                <li><b>Система:</b> Android 11</li>
+                <li><b>Разрешение:</b> 3840x2160(HDR)</li>
+                <li><b>Подключение:</b> Провод</li>
+                <li class="highlight">Цена: 4905 ₽</li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/start.png" class="thumbnail-image">
+            <img src="https://choigan.github.io/TVIP-525.png" class="thumbnail-image">
         </div>
         <div class="details">
-            <h2>Keenetic Start</h2>
+            <h2>TVIP-525</h2>
             <ul>
-                <li><b>Тип:</b> Ethernet</li>
-                <li><b>WIFI:</b> 2.4 Ghz</li>
-                <li><b>Режим:</b> Роутер, точка-доступа</li>
-                <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 2100 ₽</li>
+                <li><b>Система:</b> Linux</li>
+                <li><b>Разрешение:</b> 3840x2160(HDR)</li>
+                <li><b>Подключение:</b> Провод, 2.4 Ghz, 5 Ghz</li>
+                <li class="highlight">Цена: 5800 ₽</li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/tl_wr850n.png" class="thumbnail-image">
+            <img src="https://choigan.github.io/P-710.png" class="thumbnail-image">
         </div>
         <div class="details">
-            <h2>Tp-Link TL-WR850N</h2>
+            <h2>TVIP V2 Remote Control</h2>
             <ul>
-                <li><b>Тип:</b> Ethernet</li>
-                <li><b>WIFI:</b> 2.4 Ghz</li>
-                <li><b>Режим:</b> Роутер</li>
-                <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 2075 ₽</li>
+                <li><b>Модель:</b> TVIP-705, TVIP-710</li>
+                <li><b>Сигнал:</b> ИК-порт, Bluetooth</li>
+                <li><b>Количество кнопок:</b> 30</li>
+                <li class="highlight">Цена: 1360 ₽</li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/td-w8961n.png" class="thumbnail-image">
+            <img src="https://choigan.github.io/P-525.png" class="thumbnail-image">
         </div>
         <div class="details">
-            <h2>Tp-Link TD-W8961N</h2>
+            <h2>TVIP Remote Control</h2>
             <ul>
-                <li><b>Тип:</b> ADSL</li>
-                <li><b>WIFI:</b> 2.4 Ghz</li>
-                <li><b>Режим:</b> Роутер</li>
-                <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 2465 ₽</li>
+                <li><b>Модель:</b> TVIP-525</li>
+                <li><b>Сигнал:</b> ИК-порт</li>
+                <li><b>Количество кнопок:</b> 45</li>
+                <li class="highlight">Цена: 530 ₽</li>
             </ul>
         </div>
     </div>
@@ -220,7 +215,7 @@
         thumbnailImage.addEventListener('click', (event) => {
             fullscreenImageContent.src = thumbnailImage.src;
             fullscreenImage.style.display = 'block';
-            event.stopPropagation();
+            event.stopPropagation(); // Остановка всплытия события, чтобы не срабатывал клик на .product
         });
     });
 
