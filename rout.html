@@ -94,6 +94,29 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        /* Скрыть картинки по умолчанию */
+        .fullscreen-image {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .fullscreen-image img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
     </style>
 </head>
 
@@ -103,7 +126,7 @@
     </div>
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/archer_c20.jpg">
+            <img src="https://choigan.github.io/archer_c20.png" class="thumbnail-image">
         </div>
         <div class="details">
             <h2>Tp-Link Archer C20</h2>
@@ -119,7 +142,7 @@
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/archer_g5.jpg">
+            <img src="https://choigan.github.io/archer_g5.png" class="thumbnail-image">
         </div>
         <div class="details">
             <h2>Tp-Link Archer G5</h2>
@@ -135,7 +158,7 @@
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/start.png">
+            <img src="https://choigan.github.io/start.png" class="thumbnail-image">
         </div>
         <div class="details">
             <h2>Keenetic Start</h2>
@@ -151,7 +174,7 @@
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/tl_wr850n.jpg">
+            <img src="https://choigan.github.io/tl_wr850n.png" class="thumbnail-image">
         </div>
         <div class="details">
             <h2>Tp-Link TL-WR850N</h2>
@@ -160,14 +183,14 @@
                 <li><b>WIFI:</b> 2.4 Ghz</li>
                 <li><b>Режим:</b> Роутер</li>
                 <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 1860 ₽</li>
+                <li class="highlight">Цена: 2075 ₽</li>
             </ul>
         </div>
     </div>
 
     <div class="product">
         <div class="photo">
-            <img src="https://choigan.github.io/td-w8961n.jpg">
+            <img src="https://choigan.github.io/td-w8961n.png" class="thumbnail-image">
         </div>
         <div class="details">
             <h2>Tp-Link TD-W8961N</h2>
@@ -176,10 +199,33 @@
                 <li><b>WIFI:</b> 2.4 Ghz</li>
                 <li><b>Режим:</b> Роутер</li>
                 <li><b>Порты:</b> 100 Мбит</li>
-                <li class="highlight">Цена: 2000 ₽</li>
+                <li class="highlight">Цена: 2465 ₽</li>
             </ul>
         </div>
     </div>
+
+
+    <div class="fullscreen-image">
+        <img src="" class="fullscreen-image-content">
+    </div>
 </body>
+
+<script>
+    const productBlocks = document.querySelectorAll('.product');
+    const fullscreenImage = document.querySelector('.fullscreen-image');
+    const fullscreenImageContent = document.querySelector('.fullscreen-image-content');
+
+    productBlocks.forEach(productBlock => {
+        const thumbnailImage = productBlock.querySelector('.thumbnail-image');
+        productBlock.addEventListener('click', () => {
+            fullscreenImageContent.src = thumbnailImage.src;
+            fullscreenImage.style.display = 'block';
+        });
+    });
+
+    fullscreenImage.addEventListener('click', () => {
+        fullscreenImage.style.display = 'none';
+    });
+</script>
 
 </html>
