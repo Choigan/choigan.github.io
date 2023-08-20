@@ -84,6 +84,50 @@
             height: 2px;
             background-color: #000;
         }
+
+        .tooltip {
+            position: relative;
+            cursor: pointer;
+            border-bottom: 1px dotted #999;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: auto;
+            max-width: 250px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: calc(100% + 8px);
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .tooltip .tooltiptext .tooltip-line {
+            white-space: nowrap;
+        }
+
+        @media screen and (max-width: 480px) {
+            .tooltip .tooltiptext {
+                max-width: 200px;
+                font-size: 12;
+            }
+
+        }
     </style>
 </head>
 
@@ -92,7 +136,6 @@
         <button class="reload-button" onclick="location.reload()">Команды Zyxel ETTH</button>
     </div>
     <p><strong>N</strong> - номер порта.</p>
-    <p><strong>V</strong> - номер VLAN.</p>
     <hr class="style_hr">
 
     <h3>Основная проверка порта.</h3>
@@ -115,34 +158,53 @@
         входа в меню конфигурирования необходимо также прописать команду <strong>enable</strong>.
     </p>
 
-    <p><strong>config</strong> - вход в меню конфигурирования.</p>
-    <p><strong>interface ethernet N</strong> - выбор порта конфигурирования.</p>
+    <p><strong>configure</strong> - вход в меню конфигурирования.</p>
+    <p>Далее выбираем режим конфигурирования.</p>
+    <p><strong>interface port-channel N</strong> - конфигурирование порта.</p>
+    <p><strong>vlan {vlan}</strong> - конфигурирование VLAN.</p>
+    <p><strong>port-security</strong> - конфигурирование защиты порта.</p>
+    <hr>
     <p><strong>exit</strong> - выход в предыдущее меню конфигурирования.</p>
     <p><strong>write / Y</strong> - сохранение внесенных изменений.</p>
     <hr class="style_hr">
 
 
-    <p style="color: red;"><strong>Далее все команды выполняем в режиме конфигурирования!</strong></p>
+    <p style="color: red;"><strong>Команды ниже выполняем в режиме <span class="tooltip">конфигурирования порта<span
+                    class="tooltiptext">interface port-channel N</span></span>!</strong></p>
     <hr class="style_hr">
 
 
-    <h3>Перезагрузка порта.</h3>
+    <p><strong>inactive</strong> - отключение порта.</p>
+    <p><strong>no inactive</strong> - включение порта.</p>
+    <hr>
 
-    <p><strong>interface port-channel inactive</strong> - отключение порта.</p>
-    <p><strong>interface port-channel no inactive</strong> - включение порта.</p>
-    <hr class="style_hr">
+    <p><strong>pvid {vlan}</strong> - присваивание VLAN.</p>
+    <p><strong>speed-duplex auto</strong> - установка автоматического режима скорости и дуплекса.</p>
+    <p><strong>speed-duplex 10-full</strong> - установка скорости 10 Мбит/с в режиме full дуплекс.</p>
+    <p><strong>speed-duplex 100-full</strong> - установка скорости 100 Мбит/с в режиме full дуплекс.</p>
+    <p><strong>speed-duplex 10-half</strong> - установка скорости 10 Мбит/с в режиме half дуплекс.</p>
+    <p><strong>speed-duplex 100-half</strong> - установка скорости 100 Мбит/с в режиме half дуплекс.</p>
 
-
-    <h3>Основные команды настройки порта</h3>
-
-    <p><strong>port-security N address-limit {1-5}</strong> - настройка количества мак-адрессов.</p>
-    <p><strong>interface port-channel pvid {vlan}</strong> - присваивание VLAN.</p>
-    <p><strong>interface port-channel speed-duplex {параметр}</strong> - присваивание VLAN на абонентском порту.</p>
-    <p><strong>vlan {vlan} fixed N</strong> - включает VLAN на порту.</p>
-    <p><strong>vlan {vlan} forbidden N</strong> - включает VLAN на порту.</p>
     <p>*В случаях повреждения кабеля можно попробовать понизить скорость порта до 10 Мбит/с. Сначала пробуем режим
         <strong>full</strong>, затем <strong>half</strong>.
     </p>
+    <br>
+
+    <hr class="style_hr">
+    <p style="color: red;"><strong>Команды ниже выполняем в режиме <span class="tooltip">конфигурирования VLAN<span
+                    class="tooltiptext">vlan {vlan}</span></span>!</strong></p>
+    <hr class="style_hr">
+
+    <p><strong>fixed N</strong> - включает VLAN на порту.</p>
+    <p><strong>forbidden N</strong> - включает VLAN на порту.</p>
+    <br>
+
+    <hr class="style_hr">
+    <p style="color: red;"><strong>Команды ниже выполняем в режиме <span class="tooltip">конфигурирования защиты
+                порта<span class="tooltiptext">port-security</span></span>!</strong></p>
+    <hr class="style_hr">
+
+    <p><strong>port-security N address-limit {1-5}</strong> - настройка количества мак-адрессов.</p>
 </body>
 
 </html>
