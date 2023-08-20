@@ -133,66 +133,66 @@
 
 <body>
     <div class="container">
-        <button class="reload-button" onclick="location.reload()">Команды Zyxel DSL</button>
+        <button class="reload-button" onclick="location.reload()">Команды PON</button>
     </div>
 
-    <h3>Основная проверка IES-1248.</h3>
+    <h3>Основная проверка ONT.</h3>
 
-    <p><strong>statistics adsl linerate N</strong> - просмотр скорости линии.</p>
-    <p><strong>statistics mac N</strong> - просмотр мак-адресса.</p>
-    <p><strong>statistics adsl show N</strong> - просмотр UP-TIME.</p>
+    <p style="font-size: 12px;">Последовательность проверки. Сначала выводим список всех ONU и находим по мак-адрессу
+        нужный нам интерфейс. Затем заходим в меню конфигурирования, открываем нужный интерфейс и проверяем сигнал.
+    </p>
+
+    <p><strong>show onu-status</strong> - вывести все ONU.</p>
+    <hr>
+    <p><strong>enable</strong> - включение режима конфигурирования.</p>
+    <p><strong>configure terminal</strong> - вход в меню конфигурирования.</p>
+    <p><strong>onu 0/N/ID</strong> - выбор интерфейса конфигурирования.</p>
+    <p><strong>show onu-opm-diagnosis</strong> - параметры оптики.</p>
     <hr>
 
-    <h3>Основная проверка IES-3000.</h3>
+    <h3>Дополнительная проверка ONT.</h3>
 
-    <p><strong>lc com N linerate ID</strong> - просмотр скорости линии.</p>
-    <p><strong>lc red N wddi mac show</strong> - просмотр мак-адрессов.</p>
-    <p><strong>lc com N show port ID</strong> - просмотр UP-TIME.</p>
-    <hr>
-
-    <h3>Дополнительная проверка IES-1248.</h3>
-
-    <p><strong>statistics mac</strong> - отображение всех мак-адрессов.</p>
-    <p><strong>statistics adsl lineinfo N</strong> - просмотр параметров линии.</p>
-    <p><strong>adsl show N</strong> - просмотр профиля порта.</p>
+    <p><strong>show mac-address-table onu</strong> - вывести мак-адресса всех ONU.</p>
+    <p><strong>show mac-address-table onu <span class="tooltip">XX:XX:XX:XX:XX:XX<span
+                    class="tooltiptext">08:C6:B3:2E:7B:69</span></span></strong> - вывести мак-адресса всех ONU.</p>
     <hr class="style_hr">
 
 
-    <h3>Команды IES-1248.</h3>
-    <p><strong>adsl disable N</strong> - отключение порта.</p>
-    <p><strong>adsl enable N</strong> - включение порта.</p>
-    <hr>
-    <p><strong>switch vlan portshow N</strong> - просмотр настроек VLAN на порту.</p>
-    <p><strong>switch vlan pvid N <span class="tooltip">{vlan}<span class="tooltiptext"><span class="tooltip-line">0 -
-                        4095</span></span></span></strong> - присваивание VLAN на порту.</p>
-    <p><strong>switch vlan show *</strong> - просмотр настроек VLAN всех портов.</p>
-    <hr>
-    <p><strong>adsl profile map N <span class="tooltip">{профиль}<span class="tooltiptext">Название
-                    профиля</span></span></strong> - назначение профиля к порту.
+
+    <h3>Основная проверка ONT.</h3>
+
+    <p style="font-size: 12px;">Последовательность проверки. Сначала заходим в меню конфигурирования 0/0, выводим ONT во
+        всех портах и находим нужный по мак-адрессу и проверяем сигнал оптики. Затем выходим в меню конфигурирования и
+        проверяем мак-адресса устройства подключенного после ONT.
     </p>
-    <p><strong>adsl profile show </strong> - просмотр всех профилей.</p>
-    <p><strong>adsl profile show <span class="tooltip">{профиль}<span class="tooltiptext">Название
-                    профиля</span></span></strong> - просмотр параметров выбранного
-        профиля.</p>
-    <p><strong>adsl profile set <span class="tooltip">{профиль}<span class="tooltiptext">Название нового
-                    профиля</span></span> interleave <span class="tooltip">1024<span class="tooltiptext">Исходящая
-                    скорость</span></span> <span class="tooltip">2048<span class="tooltiptext">Входящая
-                    скорость</span></span> 6 0 31 32 6 0 31 64 3 9 3 9</strong> - создание нового
-        профиля.
+
+    <hr>
+    <p><strong>enable</strong> - включение режима конфигурирования.</p>
+    <p><strong>config</strong> - вход в меню конфигурирования.</p>
+    <p><strong>interface epon 0/0</strong> - выбор интерфейса конфигурирования.</p>
+    <p><strong>show ont optical-info N all</strong> - параметры оптики.</p>
+    <p><strong>exit</strong> - выход до предыдущего меню.</p>
+    <p><strong>show mac-address all</strong> - вывести все мак-адресса.</p>
+    <hr>
+
+    <h3>Дополнительная проверка ONT.</h3>
+
+    <p><strong>show ont optical-info N ID</strong> - полная информация оптического сигнала.</p>
+    <p><strong>show mac-address ont 0/0/N ID</strong> - вывести мак-адресса выбранного интерфейса.</p>
+    <p>Ниже команды требуют проверки, примеры взял из интернета</p>
+    <p><strong>show mac-address ont 0/0/N</strong> - вывести мак-адресса выбранного порта.</p>
+    <p><strong>show mac-address vlan <span class="tooltip">{vlan}<span class="tooltiptext"><span class="tooltip-line">0
+                        -
+                        4095</span></span></strong> - вывести мак-адресса с выбранного vlan.</p>
+    <p><strong>show mac-address dynamic include <span class="tooltip">XX:XX:XX:XX:XX:XX<span
+                    class="tooltiptext">CC:9D:A2:D5:CB:C4</span></span></strong> - найти по мак-адрессу.
     </p>
-    <p><strong>adsl profile delete <span class="tooltip">{профиль}<span class="tooltiptext">Название удаляемого
-                    профиля</span></span></strong> - удаление профиля.</p>
-    <hr>
-    <p><strong>mac flush</strong> - очистка таблицы мак-адрессов.</p>
-    <p><strong>switch mac count show N</strong> - просмотр количества разрешенных мак-адрессов на порту.</p>
-    <p><strong>switch mac count set N {0-5}</strong> - установка количества разрешенных мак-адрессов на порту.</p>
-    <hr>
-    <p><strong>adsl pvc show N</strong> - просмотр виртуальных каналов порта.</p>
-    <p><strong>statistics port N</strong> - просмотр статистики порта.</p>
-    <p><strong>sys date show</strong> - просмотр даты системы.</p>
-    <p><strong>sys time show</strong> - просмотр времени системы.</p>
-    <p><strong>sys info show</strong> - просмотр информации.</p>
-    <p><strong>sys log show</strong> - просмотр журнала событий системы.</p>
+    <p><strong>show ont distance N all</strong> - полная информация оптического сигнала.</p>
+    <p><strong>ont reboot N ID</strong> - перезагрузка терминала.</p>
+    <p><strong>ont deactivate N ID</strong> - деактивация терминала.</p>
+    <p><strong>ont activate N ID</strong> - активация терминала.</p>
+    <p><strong>mac-address flush all</strong> - очистка таблицы мак-адрессов.</p>
+    <p><strong>show vlan all</strong> - просмотр всех VLAN.</p>
     <hr class="style_hr">
 
 </body>
