@@ -200,6 +200,36 @@
     </div>
 
 
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/P-Eltex.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Eltex Remote Control</h2>
+            <ul>
+                <li><b>Модель:</b> NV-501</li>
+                <li><b>Сигнал:</b> ИК-порт</li>
+                <li><b>Количество кнопок:</b> 45</li>
+                <li class="highlight">Цена: 170 ₽</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="product">
+        <div class="photo">
+            <img src="https://choigan.github.io/bppr.png" class="thumbnail-image">
+        </div>
+        <div class="details">
+            <h2>Блок питания</h2>
+            <ul>
+                <li><b>TVIP:</b><span class="highlight"> 680 ₽</span></li>
+                <li><b>Eltex:</b><span class="highlight"> 350 ₽</span></li>
+            </ul>
+        </div>
+    </div>
+
+
     <div class="fullscreen-image">
         <img src="" class="fullscreen-image-content">
     </div>
@@ -215,7 +245,7 @@
         thumbnailImage.addEventListener('click', (event) => {
             fullscreenImageContent.src = thumbnailImage.src;
             fullscreenImage.style.display = 'block';
-            event.stopPropagation(); // Остановка всплытия события, чтобы не срабатывал клик на .product
+            event.stopPropagation();
         });
     });
 
