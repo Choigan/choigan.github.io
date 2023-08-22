@@ -81,6 +81,22 @@ def handle_section_prom(message):
     bot.send_message(message.chat.id, "Нажмите на кнопку:", reply_markup=keyboard)
 
 
+# Обработчик выбора Акции
+# @bot.message_handler(func=lambda message: message.text == "Акции")
+# def handle_section_prom(message):
+# Открываем файл и выводим как сообщение
+# keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
+# github_token = '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'
+# url_with_token = 'https://choigan.github.io/tpf?token='+github_token
+# btn_prom_cam = types.KeyboardButton(
+# text="Текущие акции",
+# web_app=WebAppInfo(url=url_with_token),
+# )
+# keyboard.add(btn_prom_cam)
+# keyboard.add("Назад")
+# bot.send_message(message.chat.id, "Нажмите на кнопку:", reply_markup=keyboard)
+
+
 # Обработчик выбора Команды
 @bot.message_handler(func=lambda message: message.text == "Команды")
 def handle_section_com(message):
@@ -109,18 +125,23 @@ def handle_section_dev(message):
     keyboard.add(btn_dev_rout)
 
     btn_dev_term = types.KeyboardButton(
-        text="Терминалы", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Терминалы", web_app=WebAppInfo(url="https://choigan.github.io/term")
     )
     keyboard.add(btn_dev_term)
 
     btn_dev_prist = types.KeyboardButton(
-        text="Приставки", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Приставки", web_app=WebAppInfo(url="https://choigan.github.io/prist")
     )
     keyboard.add(btn_dev_prist)
     btn_dev_cam = types.KeyboardButton(
-        text="Камеры", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Камеры", web_app=WebAppInfo(url="https://choigan.github.io/cam")
     )
     keyboard.add(btn_dev_cam)
+
+    btn_dev_other = types.KeyboardButton(
+        text="Прочее", web_app=WebAppInfo(url="https://choigan.github.io/other")
+    )
+    keyboard.add(btn_dev_other)
 
     keyboard.add("Назад")
 
@@ -343,27 +364,27 @@ def handle_subsection_set_wifi(message):
 
     btn_set_wifi_qtech = types.KeyboardButton(
         text="QTech.",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/qtechwifi"),
     )
     keyboard.add(btn_set_wifi_qtech)
 
     btn_set_wifi_asus = types.KeyboardButton(
-        text="ASUS.", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="ASUS.", web_app=WebAppInfo(url="https://choigan.github.io/asuswifi")
     )
     keyboard.add(btn_set_wifi_asus)
 
     btn_set_wifi_dlink = types.KeyboardButton(
-        text="D-LINK.", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="D-LINK.", web_app=WebAppInfo(url="https://choigan.github.io/dlinkwifi")
     )
     keyboard.add(btn_set_wifi_dlink)
 
     btn_set_wifi_xiaomi = types.KeyboardButton(
-        text="Xiaomi.", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Xiaomi.", web_app=WebAppInfo(url="https://choigan.github.io/xiaomiwifi")
     )
     keyboard.add(btn_set_wifi_xiaomi)
 
     btn_set_wifi_mercysus = types.KeyboardButton(
-        text="Mercusys.", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="Mercusys.", web_app=WebAppInfo(url="https://choigan.github.io/mercwifi")
     )
     keyboard.add(btn_set_wifi_mercysus)
 
@@ -400,7 +421,7 @@ def handle_subsection_set_pp(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_pp = types.KeyboardButton(
         text="Инструкция по пробросу портов",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/probrport"),
     )
     keyboard.add(btn_set_pp)
 
@@ -577,7 +598,7 @@ def handle_subsection_num_pto(message):
 @bot.message_handler(func=lambda message: message.text == "СУСС")
 def handle_subsection_num_suss(message):
     # Обработка действий Номера -> СУСС
-    with open("1.html", "r", encoding="utf-8") as file:
+    with open("num_suss.txt", "r", encoding="utf-8") as file:
         file_content = file.read()
         bot.send_message(message.chat.id, "Телефоны отдела СУСС:")
         bot.send_message(message.chat.id, file_content, parse_mode="HTML")
@@ -587,7 +608,7 @@ def handle_subsection_num_suss(message):
 @bot.message_handler(func=lambda message: message.text == "2 этаж")
 def handle_subsection_num_2floor(message):
     # Обработка действий Номера -> 2 этаж
-    with open("1.html", "r", encoding="utf-8") as file:
+    with open("num_2_floor.txt", "r", encoding="utf-8") as file:
         file_content = file.read()
         bot.send_message(message.chat.id, "Телефоны 2 этажа:")
         bot.send_message(message.chat.id, file_content, parse_mode="HTML")
@@ -670,13 +691,13 @@ def handle_subsection_set_wifi_keenetic(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_wifi_keenetic_start = types.KeyboardButton(
         text="Keenetic Start.",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/startwifi"),
     )
     keyboard.add(btn_set_wifi_keenetic_start)
 
     btn_set_wifi_keenetic_lite = types.KeyboardButton(
         text="Keenetic Zyxel Lite.",
-        web_app=WebAppInfo(url="https://choigan.github.io/tpy"),
+        web_app=WebAppInfo(url="https://choigan.github.io/litewifi"),
     )
     keyboard.add(btn_set_wifi_keenetic_lite)
 
@@ -692,12 +713,13 @@ def handle_subsection_set_wifi_tplink(message):
     keyboard = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     btn_set_wifi_tplink_c20 = types.KeyboardButton(
         text="TP-LINK C20.",
-        web_app=WebAppInfo(url="https://choigan.github.io/my"),
+        web_app=WebAppInfo(url="https://choigan.github.io/c20wifi"),
     )
     keyboard.add(btn_set_wifi_tplink_c20)
 
     btn_set_wifi_tplink_8960n = types.KeyboardButton(
-        text="TP-LINK 8960N.", web_app=WebAppInfo(url="https://choigan.github.io/tpy")
+        text="TP-LINK 8960N.",
+        web_app=WebAppInfo(url="https://choigan.github.io/8961nwifi"),
     )
     keyboard.add(btn_set_wifi_tplink_8960n)
 
